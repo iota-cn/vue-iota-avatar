@@ -15,6 +15,10 @@
         "build": "vue-cli-service build --target lib --name avatar ./src/index.js",
         "lint": "vue-cli-service lint"
     },
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:iota-cn/vue-iota-avatar.git"
+    },
     "dependencies": {
         "classnames": "^2.2.6",
         "core-js": "^3.1.2",
