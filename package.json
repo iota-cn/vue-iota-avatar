@@ -1,0 +1,59 @@
+{
+    "name": "@iota-cn/avatar",
+    "version": "0.1.2",
+    "main": "./dist/avatar.common.js",
+    "keywords": [
+        "@iota",
+        "vue",
+        "components",
+        "avatar-viewer",
+        "avatar-editor",
+        "avatar"
+    ],
+    "scripts": {
+        "examples": "vue-cli-service serve ./examples/main.js",
+        "build": "vue-cli-service build --target lib --name avatar ./src/index.js",
+        "lint": "vue-cli-service lint"
+    },
+    "dependencies": {
+        "classnames": "^2.2.6",
+        "core-js": "^3.1.2",
+        "vue": "^2.6.10"
+    },
+    "devDependencies": {
+        "@vue/cli-plugin-babel": "^4.0.0",
+        "@vue/cli-plugin-eslint": "^4.0.0",
+        "@vue/cli-service": "^4.0.0",
+        "babel-eslint": "^10.0.1",
+        "eslint": "^5.16.0",
+        "eslint-plugin-vue": "^5.0.0",
+        "stylus": "^0.54.7",
+        "stylus-loader": "^3.0.2",
+        "vue-template-compiler": "^2.6.10"
+    },
+    "eslintConfig": {
+        "root": true,
+        "env": {
+            "node": true
+        },
+        "extends": [
+            "plugin:vue/essential",
+            "eslint:recommended"
+        ],
+        "rules": {
+            "no-console": "off"
+        },
+        "parserOptions": {
+            "parser": "babel-eslint"
+        }
+    },
+    "postcss": {
+        "plugins": {
+            "autoprefixer": {}
+        }
+    },
+    "browserslist": [
+        "> 1%",
+        "last 2 versions"
+    ]
+}
