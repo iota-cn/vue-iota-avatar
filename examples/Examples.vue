@@ -24,6 +24,7 @@
             <h4>Example</h4>
             <div class='example'>
                 <iota-rawavatar :img='vueImg'
+                    :tips='tips'
                     className='example-rawavatar' />
             </div>
         </div>
@@ -34,7 +35,9 @@
             <h4>Example</h4>
             <div class='example'>
                 <div class="example-avatar-editor">
-                    <iota-avatar-editor :avatarFile='vueImg' />
+                    <iota-avatar-editor :avatarFile='vueImg'
+                        :width="100"
+                        :height="100" />
                 </div>
             </div>
         </div>
@@ -62,7 +65,8 @@ export default {
     data() {
         return {
             vueImg: VueLogo,
-            rawAvatarImg: undefined
+            rawAvatarImg: undefined,
+            tips: ['Click and select an image.', 'Another tips....']
         }
     },
 
@@ -104,8 +108,8 @@ export default {
         }
 
         .example-rawavatar {
-            background-color: gray;
-            border: 1px solid gray;
+            // background-color: gray;
+            // border: 1px solid gray;
         }
     }
 }

@@ -13,7 +13,7 @@ export default {
         onAvatarData: Function,
         width: Number,
         height: Number,
-        aspectRatio: Number
+        radiusPerc: Number
     },
 
     data() {
@@ -77,10 +77,10 @@ export default {
         return (
             <div class={classNames('avatar', this.className)} >
                 <slot name='controller'>
-                    <button class="iota-avatar-button iota-avatar-button-dashed" onClick={this.onClick}>{this.title ? this.title : '选择图片'}</button>
+                    <button class="iota-avatar-button iota-avatar-button-dashed" onClick={this.onClick}>{this.title ? this.title : 'Select Image'}</button>
                 </slot>
                 {this.visible ? <Modal onCancel={this.onCancel} onOk={this.onOk}>
-                    <div slot="header" class='title'>{this.title ? this.title : '上传图片'}</div>
+                    <div slot="header" class='title'>{this.title ? this.title : 'Upload Image'}</div>
                     <AvatarEditor title={this.title}
                         slot="body"
                         previewHint={this.previewHint}

@@ -376,7 +376,7 @@ export default {
                             style={{ display: 'none' }} />
                         <label>
                             <button class='iota-avatar-button iota-avatar-button-dashed' onClick={this.onSelectImg}>
-                                {this.selectImgHint ? this.selectImgHint : '选择图片'}
+                                {this.selectImgHint ? this.selectImgHint : 'Select Image'}
                             </button>
                         </label>
                         <span
@@ -384,13 +384,13 @@ export default {
                         >
                             {this.cropHint ?
                                 this.cropHint :
-                                `最佳尺寸 ${this.calcWidth}×${this.calcWidth}，可以上传高质量图片进行裁切`}
+                                `Best size: ${this.calcWidth}×${this.calcWidth}, you can cut it.`}
                         </span>
                     </p>
                 </div>
                 <div class={'preview-wrapper'}>
                     <div class={'preview'}>
-                        <p class={'title'}>{this.previewHint ? this.previewHint : '图像预览'}</p>
+                        <p class={'title'}>{this.previewHint ? this.previewHint : 'Preview'}</p>
                         <canvas ref={'_v100Canvas'}
                             width={this.calcWidth}
                             height={this.calcWidth}
