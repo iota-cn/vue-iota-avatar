@@ -2,6 +2,7 @@
     "name": "@iota-cn/avatar",
     "version": "0.1.3",
     "main": "./dist/avatar.common.js",
+    "license": "MIT",
     "keywords": [
         "@iota",
         "vue",
