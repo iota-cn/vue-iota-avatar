@@ -9,7 +9,6 @@ export default {
         previewHint: String,
         selectImgHint: String,
         cropHint: String,
-        onAvatarData: Function,
         width: Number,
         height: Number,
         radiusPerc: Number,
@@ -48,9 +47,7 @@ export default {
 
         onOk() {
             this.setVisible(false);
-            if (this.onAvatarData) {
-                this.onAvatarData(this.avatarCanvas);
-            }
+            this.$emit('avatar', this.avatarCanvas);
         },
 
         onCancel() {
@@ -95,7 +92,7 @@ export default {
                         radiusPerc={this.radiusPerc}
                         selectImgHint={this.selectImgHint}
                         cropHint={this.cropHint}
-                        onAvatarData={this.onAvatarDataOfEditor}
+                        onAvatar={this.onAvatarDataOfEditor}
                         avatarFile={this.avatarFile} />
                 </Modal> : null
                 }

@@ -14,7 +14,6 @@ export default {
         cropHint: {
             type: String
         },
-        onAvatarData: Function,
         radiusPerc: Number,
         width: Number,
         height: Number,
@@ -303,8 +302,7 @@ export default {
             this.refreshPreView(img, cropX, cropY, this.$refs._v64Canvas.getContext('2d'), this.widthOfCropCanvas, this.heightOfCropCanvas, this.calcWidth * 0.64, this.calcHeight * 0.64);
             this.refreshPreView(img, cropX, cropY, this.$refs._v32Canvas.getContext('2d'), this.widthOfCropCanvas, this.heightOfCropCanvas, this.calcWidth * 0.32, this.calcHeight * 0.32);
             //this.onAvatarData(ctx.getImageData(cropX, cropY, this.widthOfCropCanvas, this.heightOfCropCanvas));
-            if (this.onAvatarData)
-                this.onAvatarData(this.$refs._v100Canvas);
+            this.$emit('avatar', this.$refs._v100Canvas);
         },
 
         refreshPreView(img, cropX, cropY, canvasCtx, sX, sY, dX, dY) {
