@@ -24,8 +24,7 @@
             <h4>Example</h4>
             <div class='example'>
                 <iota-rawavatar :img='vueImg'
-                    :tips='tips'
-                    className='example-rawavatar' />
+                    :tips='tips' />
             </div>
         </div>
         <div class='section'>
@@ -48,6 +47,19 @@
             <h4>Example</h4>
             <div class='example'>
                 <iota-avatar />
+            </div>
+        </div>
+        <div class='section'>
+            <h3>AvatarEditor with custom contorller</h3>
+            <code>
+            </code>
+            <h4>Example</h4>
+            <div class='example'>
+                <iota-avatar okText='O'
+                    cancelText="C">
+                    <a slot="controller"
+                        class="controller">Controller Slot</a>
+                </iota-avatar>
             </div>
         </div>
     </div>
@@ -95,6 +107,7 @@ export default {
 .section {
     display: flex;
     flex-direction: column;
+    margin: 10px;
 
     .example {
         display: flex;
@@ -111,6 +124,12 @@ export default {
             // background-color: gray;
             // border: 1px solid gray;
         }
+    }
+
+    .controller {
+        color: #7cecbe;
+        border: 1px solid #efefef;
+        padding: 10px;
     }
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
-    <transition name="modal">
-        <div class="modal-mask">
+    <transition name="iota-avatar-modal">
+        <div class="iota-avatar-modal-mask">
             <div class="modal-container">
 
                 <div class="modal-header">
@@ -19,11 +19,11 @@
                     <slot name="footer">
                         <button class="iota-avatar-button iota-avatar-button-lg"
                             @click="$emit('cancel')">
-                            Cancel
+                            {{cancelText||'Cancel'}}
                         </button>
                         <button class="iota-avatar-button iota-avatar-button-lg iota-avatar-button-primary"
                             @click="$emit('ok')">
-                            OK
+                            {{okText||'OK'}}
                         </button>
                     </slot>
                 </div>
@@ -34,13 +34,17 @@
 
 <script>
 export default {
+    props: {
+        okText: String,
+        cancelText: String
+    }
 }
 </script>
 
-<style lang="stylus" scoped>
+<style lang="stylus">
 @import '../styles/common';
 
-.modal-mask {
+.iota-avatar-modal-mask {
     position: fixed;
     z-index: 9998;
     top: 0;
@@ -72,7 +76,6 @@ export default {
 
             .title {
                 margin-top: 0;
-                color: #42b983;
             }
         }
 
@@ -102,15 +105,15 @@ export default {
  * You can easily play with the modal transition by editing
  * these styles.
  */
-.modal-enter {
+.iota-avatar-modal-enter {
     opacity: 0;
 }
 
-.modal-leave-active {
+.iota-avatar-modal-leave-active {
     opacity: 0;
 }
 
-.modal-enter .modal-container, .modal-leave-active .modal-container {
+.iota-avatar-modal-enter .iota-avatar-modal-container, .iota-avatar-modal-leave-active .iota-avatar-modal-container {
     -webkit-transform: scale(1.1);
     transform: scale(1.1);
 }

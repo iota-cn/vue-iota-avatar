@@ -2,15 +2,14 @@
 import AvatarViewer from './AvatarViewer.vue'
 
 export default {
-    name: 'RawAvatar',
+    name: 'IotaRawAvatar',
     props: {
         uploadImg: Function,
         width: Number,
         height: Number,
         img: String,
         tips: Array,
-        disabled: Boolean,
-        className: String
+        disabled: Boolean
     },
 
     methods: {
@@ -32,7 +31,7 @@ export default {
 
     render() {
         return (
-            <div onClick={this.onClick} class={this.className}>
+            <div onClick={this.onClick} >
                 <AvatarViewer
                     img={this.img}
                     height={this.height}

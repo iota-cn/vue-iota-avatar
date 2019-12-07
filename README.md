@@ -7,23 +7,13 @@ npm install @iota-cn/avatar
 
 ## Use
 
-### Import
-```
-<script>
-import { Avatar, AvatarViewer, AvatarEditor, RawAvatar } from @iota/avatar
-...
 
-export default {
-    components: {
-        'iota-avatar-viewer': AvatarViewer,
-        'iota-rawavatar': RawAvatar,
-        'iota-avatar-editor': AvatarEditor,
-        'iota-avatar': Avatar
-    }
-    ...
-}
-...
-</script>
+### Import
+
+```
+import Avatar from '@iota-cn/avatar'
+import '@iota-cn/avatar/dist/avatar.css'
+Vue.use(Avatar)
 ```
 
 ### AvatarViewer
@@ -77,8 +67,7 @@ props: {
             default() {
                 return undefined
             }
-        },
-        className: String      // custome class
+        }
     }
 ```
 
@@ -93,8 +82,7 @@ props: {
             </code>
             <h4>Example</h4>
             <div class='example'>
-                <iota-rawavatar :img='vueImg'
-                    className='example-rawavatar' />
+                <iota-rawavatar :img='vueImg'/>
             </div>
         </div>
     </div>
@@ -110,8 +98,7 @@ props: {
         height: Number,
         img: String,           // image to show, you can reset it after the 'uploadImg' handler finished.
         tips: Array,           // tips show to the user.
-        disabled: Boolean,     // disable click event.
-        className: String      // custome class
+        disabled: Boolean,     // disable click event
     }
 ```
 
@@ -192,6 +179,15 @@ props: {
         height: Number,         // height of cut window, default: 100 (px)
         radiusPerc: Number      // radius percent, default: 100 (%)
     }
+```
+
+#### slot
+
+```
+controller                      // replace default 'Select Image' button, for example, you can use an AvataViewer inside the Avatar
+
+head                            // replace the "default header" in opened modal dialog.
+
 ```
 
 ### Example

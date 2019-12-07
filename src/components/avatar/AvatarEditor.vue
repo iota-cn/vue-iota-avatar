@@ -1,7 +1,6 @@
 <script>
-import classNames from 'classnames';
 export default {
-    name: 'AvatarEditor',
+    name: 'IotaAvatarEditor',
     props: {
         title: {
             type: String
@@ -350,7 +349,7 @@ export default {
 
     render() {
         return (
-            <div class={classNames('modal-body', this.className)}>
+            <div class='iota-avatar-modal-body'>
                 <div class={'source-wrapper'}>
                     <div class={'cropper-wrapper'}>
                         <div class={'image-ropper-wrapper'}>
@@ -433,10 +432,10 @@ export default {
 
 </script>
 
-<style lang="stylus" scoped>
+<style lang="stylus" >
 @import '../styles/common';
 
-.modal-body {
+.iota-avatar-modal-body {
     padding: 0;
     // font-size: 0;
     overflow: hidden;

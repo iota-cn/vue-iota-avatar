@@ -1,11 +1,11 @@
 <script>
-import classNames from 'classnames'
-import defaultUploadImg from './assets/icon-upload.svg'
 //RGB ONLY
 const colorRegex = new RegExp(/^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/)
 
+const defaultUpload = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiPjxwYXRoIGQ9Ik00MzMgNjAxYy0xMCAwLTIwLTQtMjctMTJhMzggMzggMCAwMTAtNTNsMTA2LTEwM2MxNC0xNCAzOC0xNCA1MiAwbDEwNCAxMDJhMzggMzggMCAwMS01MyA1M2wtNzctNzUtNzkgNzdjLTcgNy0xNyAxMS0yNiAxMXoiLz48cGF0aCBkPSJNNTM3IDkwOWMtMjEgMC0zOC0xNi0zOC0zN1Y0ODJhMzggMzggMCAwMTc2IDB2MzkwYzAgMjEtMTcgMzctMzggMzd6Ii8+PGc+PHBhdGggZD0iTTc4MyA3MjdhMzggMzggMCAwMTAtNzZjNTcgMCAxMDQtNDMgMTA0LTk3di0yN2MwLTQ0LTMyLTgyLTc3LTk0bC0yOS03IDEtMzZjMi00NS0xOC05My01NC0xMzEtNDItNDQtMTAwLTY5LTE1OS02OS0xMTggMC0yMTMgOTAtMjEzIDIwMnYzN0gyNDFjLTU3IDAtMTA0IDQ0LTEwNCA5OHYyN2MwIDU0IDQ3IDk3IDEwNCA5N2EzOCAzOCAwIDAxMCA3NmMtOTkgMC0xNzktNzgtMTc5LTE3M3YtMjdjMC05NiA4MC0xNzMgMTc5LTE3M2g0MmEyODUgMjg1IDAgMDEyODYtMjM5Yzc5IDAgMTU3IDMzIDIxNCA5MiA0NCA0NyA3MCAxMDUgNzQgMTYzIDYzIDI3IDEwNSA4OCAxMDUgMTU3djI3YzAgOTUtODAgMTczLTE3OSAxNzN6Ii8+PC9nPjwvc3ZnPg=="
+
 export default {
-    name: 'AvatarViewer',
+    name: 'IotaAvatarViewer',
     props: {
         showUpload: Boolean,
         nickname: {
@@ -33,12 +33,11 @@ export default {
             default() {
                 return undefined
             }
-        },
-        className: String
+        }
     },
 
     render() {
-        let { userStyle: style, showUpload, nickname, img, width, height, radius, color, className } = this
+        let { userStyle: style, showUpload, nickname, img, width, height, radius, color } = this
         if (style === undefined) {
             style = {}
             if (color && colorRegex.test(color)) {
@@ -62,10 +61,10 @@ export default {
         uploadStyle.left = '0'
         uploadStyle.top = '0'
         showUpload = showUpload === undefined ? (!img && !nickname) : showUpload
-        let upload = (<img class='upload' src={defaultUploadImg}
+        let upload = (<img class='upload' src={defaultUpload}
             style={uploadStyle} />)
         return (
-            <div class={classNames('avatarViewer', className)}>
+            <div class='iota-avatar-viewer'>
                 {img ?
                     <img
                         alt={nickname}
@@ -89,8 +88,8 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
-.avatarViewer {
+<style lang="stylus">
+.iota-avatar-viewer {
     text-align: center;
     cursor: pointer;
     color: white;
@@ -100,10 +99,13 @@ export default {
         background-color: rgba(128, 128, 128, 0.4);
         color: rgba(255, 255, 255, 0.3);
         transition: background-color 0.3s ease, color 0.3s ease;
+        filter: opacity(0.1);
 
-        :hover {
+        &:hover {
             background-color: rgba(128, 128, 128, 0.6);
             color: rgba(255, 255, 255, 1);
+            filter: opacity(0.3);
+            transition: filter 0.3s ease, color 0.3s ease;
         }
     }
 

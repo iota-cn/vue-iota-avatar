@@ -1,10 +1,9 @@
 <script>
-import classNames from 'classnames';
 import AvatarEditor from './AvatarEditor'
 import Modal from '../modal/Modal'
 
 export default {
-    name: 'Avatar',
+    name: 'IotaAvatar',
     props: {
         title: String,
         previewHint: String,
@@ -13,7 +12,9 @@ export default {
         onAvatarData: Function,
         width: Number,
         height: Number,
-        radiusPerc: Number
+        radiusPerc: Number,
+        okText: String,
+        cancelText: String
     },
 
     data() {
@@ -33,7 +34,8 @@ export default {
             this.avatarFile = file
         },
 
-        onClick() {
+        onClick(e) {
+            e.stopPropagation()
             let input = document.createElement('input');
             let that = this;
             input.type = "file";
@@ -73,14 +75,18 @@ export default {
         }
     },
 
-    render() {
+    render(h) {
         return (
-            <div class={classNames('avatar', this.className)} >
-                <slot name='controller'>
-                    <button class="iota-avatar-button iota-avatar-button-dashed" onClick={this.onClick}>{this.title ? this.title : 'Select Image'}</button>
-                </slot>
-                {this.visible ? <Modal onCancel={this.onCancel} onOk={this.onOk}>
-                    <div slot="header" class='title'>{this.title ? this.title : 'Upload Image'}</div>
+            <div class='avatar'>
+                <div class='controller' onClick={this.onClick}>
+                    {
+                        this.$slots.controller
+                            ? h('i', this.$slots.controller)
+                            : <button class="iota-avatar-button iota-avatar-button-dashed">{this.title ? this.title : 'Select Image'}</button>
+                    }
+                </div>
+                {this.visible ? <Modal onCancel={this.onCancel} onOk={this.onOk} okText={this.okText} cancelText={this.cancelText}>
+                    <div class='iota-avatar-modal-title' slot='header'>{this.title ? this.title : 'Upload Image'}</div>
                     <AvatarEditor title={this.title}
                         slot="body"
                         previewHint={this.previewHint}
@@ -99,11 +105,17 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
+<style lang="stylus">
 @import '../styles/common';
 
-.title {
-    text-align: center;
+.iota-avatar {
+    .controller {
+        cursor: pointer;
+    }
+}
+
+.iota-avatar-modal-title {
+    width: 100%;
     letter-spacing: 1px;
     color: rgba(51, 51, 51, 0.8);
     font-size: 16px;
