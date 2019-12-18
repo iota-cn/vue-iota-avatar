@@ -390,7 +390,7 @@ export default {
                         <p class={'title'}>{this.previewHint ? this.previewHint : 'Preview'}</p>
                         <canvas ref={'_v100Canvas'}
                             width={this.calcWidth}
-                            height={this.calcWidth}
+                            height={this.calcHeight}
                             style={{
                                 width: `${this.widthBase * 1.5}px`,
                                 height: `${this.heightBase * 1.5}px`,
@@ -401,7 +401,7 @@ export default {
                             {this.aspectRatio > 1 ? `100x${Math.round(100 / this.aspectRatio)}` : `${Math.round(100 * this.aspectRatio)}×100`}</div>
                         <canvas ref={'_v64Canvas'}
                             width={this.calcWidth * 0.64}
-                            height={this.calcWidth * 0.64}
+                            height={this.calcHeight * 0.64}
                             style={{
                                 width: `${this.widthBase * 0.64 * 1.5}px`,
                                 height: `${this.heightBase * 0.64 * 1.5}px`,
@@ -411,7 +411,7 @@ export default {
                             {this.aspectRatio > 1 ? `64x${Math.round(64 / this.aspectRatio)}` : `${Math.round(64 * this.aspectRatio)}×64`}</div>
                         <canvas ref={'_v32Canvas'}
                             width={this.calcWidth * 0.32}
-                            height={this.calcWidth * 0.32}
+                            height={this.calcHeight * 0.32}
                             style={{
                                 width: `${this.widthBase * 0.32 * 1.5}px`,
                                 height: `${this.heightBase * 0.32 * 1.5}px`,
