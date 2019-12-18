@@ -35,7 +35,7 @@
             <div class='example'>
                 <div class="example-avatar-editor">
                     <iota-avatar-editor :avatarFile='vueImg'
-                        :width="100"
+                        :width="200"
                         :height="100" />
                 </div>
             </div>
