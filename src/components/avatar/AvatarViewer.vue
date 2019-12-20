@@ -55,6 +55,16 @@ export default {
             style.lineHeight = `${height}px`
             style.display = 'block'
         }
+        let imageStyle = {
+            margin: 'auto',
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            bottom: 0,
+            right: 0,
+            maxHeight: '100%',
+            maxWidth: '100%'
+        }
         let uploadStyle = Object.assign({}, style)
         uploadStyle.position = 'absolute'
         delete uploadStyle.backgroundColor
@@ -64,12 +74,12 @@ export default {
         let upload = (<img class='upload' src={defaultUpload}
             style={uploadStyle} />)
         return (
-            <div class='iota-avatar-viewer'>
+            <div class='iota-avatar-viewer' style={style}>
                 {img ?
                     <img
                         alt={nickname}
                         src={img}
-                        style={style}
+                        style={imageStyle}
                     />
                     :
                     <div
@@ -110,7 +120,7 @@ export default {
     }
 
     img {
-        border-radius: $radius;
+        // border-radius: $radius;
     }
 }
 </style>

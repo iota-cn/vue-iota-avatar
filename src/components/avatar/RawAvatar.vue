@@ -9,7 +9,10 @@ export default {
         height: Number,
         img: String,
         tips: Array,
-        disabled: Boolean
+        disabled: Boolean,
+        showUpload: Boolean,
+        color: String,
+        radius: Number
     },
 
     methods: {
@@ -36,7 +39,9 @@ export default {
                     img={this.img}
                     height={this.height}
                     width={this.width}
-                    color='#666666'
+                    color={this.color || 'transparent'}
+                    showUpload={this.showUpload}
+                    radius={this.radius}
                 />
                 {this.tips ?
                     <ol style={{ textAlign: "left" }}>

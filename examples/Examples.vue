@@ -35,6 +35,7 @@
             <div class='example'>
                 <div class="example-avatar-editor">
                     <iota-avatar-editor :avatarFile='vueImg'
+                        cropHint='Best size: 200×100, you can cut it.'
                         :width="200"
                         :height="100" />
                 </div>

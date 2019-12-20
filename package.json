@@ -1,6 +1,6 @@
 {
     "name": "@iota-cn/avatar",
-    "version": "0.1.9",
+    "version": "0.1.10",
     "main": "./dist/avatar.common.js",
     "license": "MIT",
     "keywords": [
