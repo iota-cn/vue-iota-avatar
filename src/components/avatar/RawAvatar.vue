@@ -20,6 +20,7 @@ export default {
             let input = document.createElement('input');
             let that = this;
             input.type = "file";
+            input.accept = "image/*";
             if (!this.disabled) {
                 input.addEventListener('change', function () {
                     let files = input.files;

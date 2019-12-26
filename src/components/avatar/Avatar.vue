@@ -38,6 +38,7 @@ export default {
             let input = document.createElement('input');
             let that = this;
             input.type = "file";
+            input.accept = "image/*";
             input.addEventListener('change', function () {
                 let files = input.files;
                 that.setAvatarFile(files[0]);
