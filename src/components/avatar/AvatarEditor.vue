@@ -338,6 +338,7 @@ export default {
             this.$refs._fileInput.click();
             let that = this;
             this.$refs._fileInput.type = "file";
+            this.$refs._fileInput.accept = "image/*";
             this.$refs._fileInput.addEventListener('change', function () {
                 let files = that.$refs._fileInput.files;
                 that.redraw(files[0]);
