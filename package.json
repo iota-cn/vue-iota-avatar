@@ -13,7 +13,8 @@
     ],
     "scripts": {
         "examples": "vue-cli-service serve ./examples/main.js",
-        "build": "vue-cli-service build --target lib --name avatar ./src/index.js",
+        "lib": "vue-cli-service build --target lib --name avatar ./src/index.js",
+        "prepublish": "npm run lib",
         "lint": "vue-cli-service lint"
     },
     "repository": {
