@@ -18,11 +18,11 @@
                 <div class="modal-footer">
                     <slot name="footer">
                         <button class="iota-avatar-button iota-avatar-button-lg"
-                            @click="$emit('cancel')">
+                            @click="onCancel">
                             {{cancelText||'Cancel'}}
                         </button>
                         <button class="iota-avatar-button iota-avatar-button-lg iota-avatar-button-primary"
-                            @click="$emit('ok')">
+                            @click="onOk">
                             {{okText||'OK'}}
                         </button>
                     </slot>
@@ -37,6 +37,18 @@ export default {
     props: {
         okText: String,
         cancelText: String
+    },
+    methods: {
+        onCancel(e) {
+            e.stopPropagation()
+            e.preventDefault()
+            this.$emit('cancel', e)
+        },
+        onOk(e) {
+            e.stopPropagation()
+            e.preventDefault()
+            this.$emit('ok', e)
+        }
     }
 }
 </script>

@@ -334,7 +334,9 @@ export default {
             }
         },
 
-        onSelectImg() {
+        onSelectImg(e) {
+            e.stopPropagation()
+            e.preventDefault()
             this.$refs._fileInput.click();
             let that = this;
             this.$refs._fileInput.type = "file";
